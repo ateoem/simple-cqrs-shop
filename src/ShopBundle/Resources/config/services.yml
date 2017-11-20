@@ -1,0 +1,14 @@
+services:
+    shop_bundle.command.created_product_handler:
+        class: ShopBundle\Command\CreateProductHandler
+        arguments:
+            - '@event_dispatcher'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: command_handler, handles: ShopBundle\Command\CreateProduct }
+    shop_bundle.event_listener.notify_when_product_created:
+        class: ShopBundle\EventListener\NotifyWhenProductCreated
+        arguments:
+            - '@mailer'
+        tags:
+            - { name: kernel.event_listener, event: shop_bundle.event.product.created, method: onProductCreated }
