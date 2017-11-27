@@ -9,6 +9,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 abstract class IntegrationTestCase extends KernelTestCase
 {
+    use PurgeTrait;
+
     /** @var ContainerInterface */
     protected $container;
 
@@ -22,8 +24,6 @@ abstract class IntegrationTestCase extends KernelTestCase
         $this->container = self::$kernel->getContainer();
         $this->em = $this->container->get('doctrine')->getManager();
 
-        $purger = new ORMPurger($this->em);
-        $purger->setPurgeMode(ORMPurger::PURGE_MODE_TRUNCATE);
-        $purger->purge();
+        $this->purge();
     }
 }

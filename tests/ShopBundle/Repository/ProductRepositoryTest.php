@@ -35,7 +35,7 @@ class ProductRepositoryTest extends IntegrationTestCase
         $query = $this->repository->getPaginationQuery();
         $results = $query->getResult();
 
-        $this->assertCount(10, $results);
-        $this->assertGreaterThan($results[0]->getCreatedAt(), $results[9]->getCreatedAt());
+        $this->assertCount(30, $results);
+        $this->assertGreaterThan($results[0]->getCreatedAt(), $results[29]->getCreatedAt());
     }
 }

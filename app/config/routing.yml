@@ -3,15 +3,5 @@ shop:
     type:     annotation
     prefix:   /
 
-simple_shop_app:
-    resource: "@SimpleShopAppBundle/Resources/config/routing.xml"
-    prefix:   /
-
-simple_shop:
-    resource: "@SimpleShopBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+logout:
+    path: /logout
