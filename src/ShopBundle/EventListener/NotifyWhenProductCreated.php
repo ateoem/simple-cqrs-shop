@@ -8,7 +8,6 @@
 
 namespace ShopBundle\EventListener;
 
-
 use ShopBundle\Event\ProductWasCreated;
 
 class NotifyWhenProductCreated
@@ -30,7 +29,8 @@ class NotifyWhenProductCreated
 
         $message = (new \Swift_Message('Product was created'))
             ->setTo('fake@example.com')
-            ->setBody(sprintf('Product with id "%s" created.', $productId),
+            ->setBody(
+                sprintf('Product with id "%s" created.', $productId),
                 'text/html'
             );
 

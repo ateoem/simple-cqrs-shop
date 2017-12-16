@@ -2,7 +2,6 @@
 
 namespace ShopBundle\Command;
 
-
 use Doctrine\ORM\EntityManager;
 use ShopBundle\Entity\Product;
 use ShopBundle\Event\ProductWasCreated;

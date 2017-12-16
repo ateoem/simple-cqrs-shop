@@ -115,4 +115,3 @@ class Product
         return $this->createdAt;
     }
 }
-

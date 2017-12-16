@@ -19,7 +19,11 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', TextType::class, ['required' => true])
-            ->add('description', TextareaType::class, ['attr' => array('rows' => '10'), 'required' => true, 'constraints' => array(new Length(array('min' => 100)))])
+            ->add('description', TextareaType::class, [
+                'attr' => ['rows' => '10'],
+                'required' => true,
+                'constraints' => [new Length(array('min' => 100))]
+            ])
             ->add('price', NumberType::class, ['required' => true, 'scale' => 2])
             ->add('Submit', SubmitType::class);
     }
@@ -39,6 +43,4 @@ class ProductType extends AbstractType
     {
         return 'shopbundle_product';
     }
-
-
 }
